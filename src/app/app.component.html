@@ -1,0 +1,132 @@
+<div class="container container-fluid">
+        
+    <div class="searching-field">
+        <img class="img" src="/assets/vodafone_icon.png"/>
+        <label class="header1">Choose Request Type </label>
+        <select class="form-select" #reuesttype (change)="setRequestType($event)">
+          <option></option>
+            <option value="add">add new record</option>
+            <option value="delete">delete record</option>
+            <option value="update">update record</option>
+        </select>
+    </div>
+    <div *ngIf="add">
+        <div class="container-fluid lab-form" id="test">
+            <br/>
+            <div class="header"><h1>Add DNS Record</h1> </div>
+            <form>
+                <div class="respo requst-info">
+                    <table>
+                        <tr class="form-group">
+                            <td>Owner</td>
+                            <td><input type="text" [(ngModel)]="owner" [ngModelOptions]="{standalone: true}" class="form-control" id="owner" ></td>
+                            <td>Businesss</td>
+                            <td><input type="text" [(ngModel)]="business" [ngModelOptions]="{standalone: true}" class="form-control" id="business"></td>
+                        </tr>
+                        <tr class="form-group">
+                          <td>Department</td>
+                          <td><input type="text" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" class="form-control" id="department"></td>
+                          <td>Email</td>
+                          <td><input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"></td>
+                      </tr>
+                        <tr class="form-group">
+                            <td>Domain</td>
+                            <td><input type="text" [(ngModel)]="domain" [ngModelOptions]="{standalone: true}" class="form-control" id="domain" /></td>
+                            <td>Zone</td>
+                            <td><input type="text" [(ngModel)]="zone" [ngModelOptions]="{standalone: true}" class="form-control" id="zone" /></td>
+                        </tr>
+                        <tr class="form-group">
+                            <td>URL</td>
+                            <td><input type="text" [(ngModel)]="url" [ngModelOptions]="{standalone: true}" class="form-control" id="url"></td>
+                            <td>IP</td>
+                            <td><input type="text" [(ngModel)]="ip" [ngModelOptions]="{standalone: true}" class="form-control" id="ip"></td>
+                        </tr>
+                       
+                    </table>
+                </div>
+                <input type="button" class="btn" value="Send Request" (click)='addRecord()'/>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="delete">
+        <div class="container-fluid lab-form" id="test">
+            <br/>
+            <div class="header"><h1>Delete DNS Record</h1> </div>
+            <form>
+                <div class="respo requst-info">
+                    <table>
+                        <tr class="form-group">
+                            <td>Owner</td>
+                            <td><input type="text" [(ngModel)]="owner" [ngModelOptions]="{standalone: true}" class="form-control" id="owner" ></td>
+                            <td>Businesss</td>
+                            <td><input type="text" [(ngModel)]="business" [ngModelOptions]="{standalone: true}" class="form-control" id="business"></td>
+                        </tr>
+                        <tr class="form-group">
+                          <td>Department</td>
+                          <td><input type="text" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" class="form-control" id="department"></td>
+                          <td>Email</td>
+                          <td><input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"></td>
+                      </tr>
+                        <tr class="form-group">
+                            <td>Domain</td>
+                            <td><input type="text" [(ngModel)]="domain" [ngModelOptions]="{standalone: true}" class="form-control" id="domain" /></td>
+                            <td>Zone</td>
+                            <td><input type="text" [(ngModel)]="zone" [ngModelOptions]="{standalone: true}" class="form-control" id="zone" /></td>
+                        </tr>
+                        <tr class="form-group">
+                            <td>URL</td>
+                            <td><input type="text" [(ngModel)]="url" [ngModelOptions]="{standalone: true}" class="form-control" id="url"></td>
+                            <td>IP</td>
+                            <td><input type="text" [(ngModel)]="ip" [ngModelOptions]="{standalone: true}" class="form-control" id="ip"></td>
+                        </tr>
+                       
+                    </table>
+                </div>
+                <input type="button" class="btn" value="Send Request" (click)="deleteRecord()"/>
+            </form>
+        </div>
+    </div>
+    <div *ngIf="update">
+        <div class="container-fluid lab-form" id="test">
+            <br/>
+            <div class="header"><h1>Update DNS Record</h1> </div>
+            <form>
+                <div class="respo requst-info">
+                    <table>
+                        <tr class="form-group">
+                            <td>Owner</td>
+                            <td><input type="text" [(ngModel)]="owner" [ngModelOptions]="{standalone: true}" class="form-control" id="owner" ></td>
+                            <td>Businesss</td>
+                            <td><input type="text" [(ngModel)]="business" [ngModelOptions]="{standalone: true}" class="form-control" id="business"></td>
+                        </tr>
+                        <tr class="form-group">
+                          <td>Department</td>
+                          <td><input type="text" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" class="form-control" id="department"></td>
+                          <td>Email</td>
+                          <td><input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email"></td>
+                      </tr>
+                      <tr class="form-group">
+                        <td>Domain</td>
+                        <td><input type="text" [(ngModel)]="domain" [ngModelOptions]="{standalone: true}" class="form-control" id="domain" /></td>
+                        <td>Zone</td>
+                        <td><input type="text" [(ngModel)]="zone" [ngModelOptions]="{standalone: true}" class="form-control" id="zone" /></td>
+                    </tr>
+                        <tr>
+                            <td>Old URL</td>
+                            <td><input type="text" [(ngModel)]="url" [ngModelOptions]="{standalone: true}" class="form-control" id="url"></td>
+                            <td>New URL</td>
+                            <td><input type="text" [(ngModel)]="new_url" [ngModelOptions]="{standalone: true}" class="form-control" id="new_url"></td>
+                        </tr>
+                        <tr>
+                            <td>Old IP</td>
+                            <td><input type="text"[(ngModel)]="ip" [ngModelOptions]="{standalone: true}" class="form-control" id="ip"></td>
+                            <td>New IP</td>
+                            <td><input type="text" [(ngModel)]="new_ip" [ngModelOptions]="{standalone: true}" class="form-control" id="new_ip"></td>
+                        </tr>
+                    </table>
+                </div>
+                <input type="button" class="btn" value="Send Request" (click)="updateRecord()"/>
+            </form>
+        </div>
+    </div>
+</div>
